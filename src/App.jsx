@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const fruits = [
+  { name: "strawberry", color: "red", size: 2 },
+  { name: "banana", color: "yellow", size: 5 },
+  { name: "kiwi", color: "green", size: 3 },
+  { name: "apple", color: "red", size: 4 },
+  { name: "blueberry", color: "blue", size: 1 },
+  { name: "orange", color: "orange", size: 4 },
+  { name: "grape", color: "purple", size: 2 },
+  { name: "lemon", color: "yellow", size: 3 },
+  { name: "cherry", color: "red", size: 2 },
+  { name: "watermelon", color: "green", size: 8 },
+];
 
+function YellowFruits() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {fruits
+        .filter((fruit) => fruit.color === "yellow")
+        .map((fruit) => {
+          return (
+            <div key={fruit.name}>
+              name: {fruit.name}, color: {fruit.color}, size: {fruit.size}
+            </div>
+          );
+        })}
     </>
-  )
+  );
 }
 
-export default App
+function FruitsList() {
+  return (
+    <>
+      {fruits.map((fruit) => {
+        return (
+          <div key={fruit.name}>
+            name: {fruit.name}, color: {fruit.color}, size: {fruit.size}
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <FruitsList />
+      <YellowFruits />
+    </>
+  );
+}
+
+export default App;
