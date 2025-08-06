@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SuperDuperMegaCheeseBurger />
     </>
-  )
+  );
 }
 
-export default App
+function SuperDuperMegaCheeseBurger() {
+  return (
+    <>
+      <Bun />
+      <Patty />
+      <Lettuce />
+      <Tomato />
+      <Cheese />
+      <Patty />
+      <Cheese />
+      <Patty />
+      <Cheese />
+      <Patty />
+      <Cheese />
+      <Patty />
+      <Bun />
+    </>
+  );
+}
+
+function Bun() {
+  return (
+    <div className="bun">
+      Flour
+      <span> Water</span>
+      <span> Egg</span>
+      <span> Yeast</span>
+    </div>
+  );
+}
+
+function Patty() {
+  return (
+    <div className="patty">
+      Beef
+      <span> Pepper</span>
+      <span> Salt</span>
+    </div>
+  );
+}
+
+function Lettuce() {
+  return (
+    <div className="lettuce">
+      Leaf
+      <span> Stem</span>
+    </div>
+  );
+}
+
+function Tomato() {
+  return (
+    <div className="tomato">
+      tomato
+      <span> Skin</span>
+      <span> Flesh</span>
+      <span> Seeds</span>
+    </div>
+  );
+}
+
+function Cheese() {
+  return (
+    <div className="cheese">
+      Milk
+      <span> Salt</span>
+      <span> Coloring</span>
+    </div>
+  );
+}
+
+export default App;
