@@ -8,14 +8,14 @@ function App() {
       <div>counter : {counter}</div>
       <button
         onClick={() => {
-          setCounter(counter + 1);
+          setCounter((prev) => prev + 1);
         }}
       >
         +
       </button>
       <button
         onClick={() => {
-          setCounter(counter - 1);
+          setCounter((prev) => prev - 1);
         }}
       >
         -
