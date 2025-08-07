@@ -14,10 +14,10 @@ class CounterClass extends Component {
   }
 }
 
+// constructor 생략: 따로 오버라이딩하지 않으면 기본 생성자가 자동으로 사용됨
+// super(props) 없이도 props 접근 가능 (기본 처리)
+// props는 this.props로 직접 접근
 class Count extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return <div>counter: {this.props.counter}</div>;
   }
