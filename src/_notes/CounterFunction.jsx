@@ -6,11 +6,11 @@ function CounterFunction() {
   const [inputValue, setInputValue] = useState(0);
 
   const incrementCounter = () => {
-    setCounter(counter + 1);
+    setCounter((prev) => prev + 1);
   };
 
   const decrementCounter = () => {
-    setCounter(counter - 1);
+    setCounter((prev) => prev - 1);
   };
 
   const setCounterNumber = () => {
@@ -20,8 +20,8 @@ function CounterFunction() {
   return (
     <>
       <Count counter={counter} />
-      <PlusButton setCounter={setCounter} incrementCounter={incrementCounter} />
-      <MinusButton setCounter={setCounter} decrementCounter={decrementCounter} />
+      <PlusButton incrementCounter={incrementCounter} />
+      <MinusButton decrementCounter={decrementCounter} />
       <CounterInput
         inputValue={inputValue}
         setInputValue={setInputValue}
@@ -38,7 +38,7 @@ function CounterInput({ inputValue, setInputValue, setCounterNumber }) {
         type="number"
         value={inputValue}
         onChange={(event) => {
-          setInputValue(event.target.value);
+          setInputValue(Number(event.target.value));
         }}
       />
       <button onClick={setCounterNumber}>입력</button>
