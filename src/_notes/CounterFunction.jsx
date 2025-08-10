@@ -4,40 +4,32 @@ import "../../src/App.css";
 function CounterFunction() {
   const [counter, setCounter] = useState(0);
 
+  const incrementCounter = () => {
+    setCounter(counter + 1);
+  };
+
+  const decrementCounter = () => {
+    setCounter(counter - 1);
+  };
+
   return (
     <>
-      <Count counter={counter} array={[1, 2, 3, "안녕하세요"]} hello={"hello"} />
-      <PlusButton setCounter={setCounter} />
-      <MinusButton setCounter={setCounter} />
+      <Count counter={counter} />
+      <PlusButton setCounter={setCounter} incrementCounter={incrementCounter} />
+      <MinusButton setCounter={setCounter} decrementCounter={decrementCounter} />
     </>
   );
 }
 
-function PlusButton({ setCounter }) {
-  return (
-    <button
-      onClick={() => {
-        setCounter((prev) => prev + 1);
-      }}
-    >
-      +
-    </button>
-  );
+function PlusButton({ incrementCounter }) {
+  return <button onClick={incrementCounter}>+</button>;
 }
 
-function MinusButton({ setCounter }) {
-  return (
-    <button
-      onClick={() => {
-        setCounter((prev) => prev - 1);
-      }}
-    >
-      -
-    </button>
-  );
+function MinusButton({ decrementCounter }) {
+  return <button onClick={decrementCounter}>-</button>;
 }
 
-function Count({ counter, array, hello }) {
+function Count({ counter }) {
   return <div>counter : {counter}</div>;
 }
 
