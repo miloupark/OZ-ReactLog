@@ -10,13 +10,23 @@ function App() {
 
   return (
     <>
-      <ul>
-        {todoList.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
+      <TodoList todoList={todoList} />
     </>
   );
+}
+
+function TodoList({ todoList }) {
+  return (
+    <ul>
+      {todoList.map((todo) => (
+        <Todo key={todo.id} todo={todo} />
+      ))}
+    </ul>
+  );
+}
+
+function Todo({ todo }) {
+  return <li>{todo.content}</li>;
 }
 
 export default App;
