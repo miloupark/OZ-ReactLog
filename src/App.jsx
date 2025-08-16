@@ -52,9 +52,26 @@ function TodoList({ todoList, setTodoList }) {
 }
 
 function Todo({ todo, setTodoList }) {
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <li>
       {todo.content}
+      <input
+        value={inputValue}
+        onChange={(event) => {
+          setInputValue(event.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          setTodoList((prev) =>
+            prev.map((el) => (el.id === todo.id ? { ...el, content: inputValue } : el))
+          );
+        }}
+      >
+        수정
+      </button>
       <button
         onClick={() => {
           setTodoList((prev) => {
