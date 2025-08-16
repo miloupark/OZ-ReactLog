@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} setTodoList={setTodoList} />
       <hr />
       <TodoInput todoList={todoList} setTodoList={setTodoList} />
     </>
@@ -41,18 +41,31 @@ function TodoInput({ todoList, setTodoList }) {
   );
 }
 
-function TodoList({ todoList }) {
+function TodoList({ todoList, setTodoList }) {
   return (
     <ul>
       {todoList.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
+        <Todo key={todo.id} todo={todo} setTodoList={setTodoList} />
       ))}
     </ul>
   );
 }
 
-function Todo({ todo }) {
-  return <li>{todo.content}</li>;
+function Todo({ todo, setTodoList }) {
+  return (
+    <li>
+      {todo.content}
+      <button
+        onClick={() => {
+          setTodoList((prev) => {
+            return prev.filter((el) => el.id !== todo.id);
+          });
+        }}
+      >
+        삭제
+      </button>
+    </li>
+  );
 }
 
 export default App;
