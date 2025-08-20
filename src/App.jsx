@@ -3,8 +3,8 @@ import styled from "styled-components";
 function App() {
   return (
     <>
+      <h1>Styled-Components</h1>
       <Container>
-        <p>Styled-Components</p>
         {/* BlueButton */}
         <BlueButton>BlueButton</BlueButton>
         <PropsButton
@@ -52,9 +52,11 @@ function App() {
 // container
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
-  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  row-gap: 20px;
 `;
 
 // button
