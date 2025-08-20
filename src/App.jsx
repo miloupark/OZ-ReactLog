@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 function App() {
   const [input1, setInput1] = useState(0);
@@ -9,6 +9,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyle />
       <h1>Styled-Components</h1>
       <SubTitle> Button props</SubTitle>
       <Container>
@@ -108,6 +109,7 @@ const SubTitle = styled.h2`
   background-color: black;
   color: white;
   padding: 12px 8px;
+  margin: 20px 0;
 `;
 
 // button
@@ -152,6 +154,18 @@ const BackgroundColorDiv = styled.div`
     ${(props) => props.input3},
     ${(props) => props.input4}
   );
+`;
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  input{
+    width: 80%;
+  }
 `;
 
 export default App;
