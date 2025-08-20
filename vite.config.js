@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/oz-reactlog/styling/styled-components/",
+  base: "/OZ-ReactLog/styling/styled-components/",
 });
