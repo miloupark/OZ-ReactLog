@@ -11,7 +11,7 @@ function App() {
     <>
       <GlobalStyle />
       <h1>Styled-Components</h1>
-      <SubTitle> Button props</SubTitle>
+      <SubTitle>💡 Button props</SubTitle>
       <Container>
         {/* BlueButton */}
         <BlueButton>BlueButton</BlueButton>
