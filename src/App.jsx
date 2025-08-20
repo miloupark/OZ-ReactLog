@@ -1,31 +1,44 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import styled from "styled-components";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Container>
+        <p>Styled-Components</p>
+        <BlueButton>BlueButton</BlueButton>
+        <LargeBlueButton>LargeBlueButton</LargeBlueButton>
+        <LargeTextBlueButton>LargeTextBlueButton</LargeTextBlueButton>
+      </Container>
     </>
   );
 }
+
+// button
+const BlueButton = styled.button`
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+`;
+
+// button component reuse
+const LargeBlueButton = styled(BlueButton)`
+  width: 300px;
+  padding: 20px;
+`;
+
+const LargeTextBlueButton = styled(LargeBlueButton)`
+  font-size: 24px;
+  font-weight: 800;
+`;
+
+// container
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+`;
 
 export default App;
