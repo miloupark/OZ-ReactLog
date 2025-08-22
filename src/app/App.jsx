@@ -1,38 +1,74 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import PropsDrillingPage from "../pages/PropsDrillingPage";
 import ReduxPage from "../pages/ReduxPage";
-import ContextPage from "../pages/Contextpage";
+import ContextPage from "../pages/ContextPage";
 import styled from "styled-components";
+import CafePage from "../pages/CafePage";
 
-export default function App() {
+// 공통 레이아웃
+function DefaultLayout() {
   return (
-    <Section>
-      <Nav>
-        <h1>React 상태관리</h1>
-        <ul>
-          <Link to="/">🏠 Home</Link>
-          <Link to="/props-drilling">Props Drilling</Link>
-          <Link to="/redux">Redux</Link>
-          <Link to="/context">Context</Link>
-        </ul>
-      </Nav>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/props-drilling" element={<PropsDrillingPage />} />
-        <Route path="/redux" element={<ReduxPage />} />
-        <Route path="/context" element={<ContextPage />} />
-      </Routes>
-    </Section>
+    <>
+      <Layout>
+        <Header>
+          <h1>React 상태관리</h1>
+          <ul>
+            <Link to="/">🏠 Home</Link>
+            <Link to="/props-drilling">Props Drilling</Link>
+            <Link to="/cafe">Cafe</Link>
+            <Link to="/redux">Redux</Link>
+            <Link to="/context">Context</Link>
+          </ul>
+        </Header>
+        <Main>
+          <Outlet />
+        </Main>
+      </Layout>
+    </>
   );
 }
 
-const Section = styled.section`
-  height: 100%;
+// 카페 레이아웃
+function CafeLayout() {
+  return (
+    <Layout $isCafe>
+      <Main>
+        <Outlet />
+      </Main>
+    </Layout>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      {/* 공통 레이아웃 사용 라우트 */}
+      <Route element={<DefaultLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/props-drilling" element={<PropsDrillingPage />} />
+        <Route path="/redux" element={<ReduxPage />} />
+        <Route path="/context" element={<ContextPage />} />
+      </Route>
+
+      {/* 카페 레이아웃 */}
+      <Route element={<CafeLayout />}>
+        <Route path="/cafe" element={<CafePage />} />
+      </Route>
+    </Routes>
+  );
+}
+
+const Layout = styled.div`
+  min-height: 100svh;
+  min-height: 100dvh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: ${({ $isCafe }) => ($isCafe ? "#0f172a" : "transparent")};
 `;
 
-const Nav = styled.nav`
+const Header = styled.header`
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -53,4 +89,9 @@ const Nav = styled.nav`
       color: #9ecbff;
     }
   }
+`;
+
+const Main = styled.main`
+  flex: 1;
+  padding: 20px;
 `;
