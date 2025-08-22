@@ -18,13 +18,11 @@ export const Component = styled.div`
   min-width: 80px;
   min-height: 80px;
   font-weight: 600;
-  border-radius: 10px;
   line-height: 32px;
   text-align: center;
   gap: 8px;
-  padding: 12px;
+  padding: 24px;
   margin: 12px;
-
   border: 2px solid ${({ $role }) => roleStyles[$role]?.border || "#eeeeee"};
   border-radius: 10px;
   color: ${({ $role }) => roleStyles[$role]?.text || "#FFFFFF"};
@@ -46,7 +44,7 @@ export const Legend = styled.div`
 export const Badge = styled.span`
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 15px;
   border: 1px solid ${({ $role }) => roleStyles[$role]?.border ?? "#999"};
   background: ${({ $role }) => roleStyles[$role]?.bg ?? "#f3f4f6"};
   color: ${({ $role }) => roleStyles[$role]?.text || "#000"};

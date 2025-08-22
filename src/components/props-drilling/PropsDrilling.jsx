@@ -17,7 +17,7 @@ export default function PropsDrilling() {
 
         <S.Container $role="owner">
           <S.Component $role="owner">
-            Props Drilling
+            App
             <S.Container>
               <Child1 counter={counter} />
               <Child2 counter={counter} setCounter={setCounter} />
