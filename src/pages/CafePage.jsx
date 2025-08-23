@@ -1,5 +1,5 @@
-import { PagesTitle } from "./pages.styles";
+import Cafe from "../components/cafe/Cafe";
 
 export default function CafePage() {
-  return <PagesTitle>Cafe</PagesTitle>;
+  return <Cafe />;
 }

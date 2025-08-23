@@ -53,7 +53,7 @@ export default function App() {
 
       {/* 카페 레이아웃 */}
       <Route element={<CafeLayout />}>
-        <Route path="/cafe" element={<CafePage />} />
+        <Route path="/cafe/*" element={<CafePage />} />
       </Route>
     </Routes>
   );
@@ -65,7 +65,7 @@ const Layout = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: ${({ $isCafe }) => ($isCafe ? "#0f172a" : "transparent")};
+  background: ${({ $isCafe }) => ($isCafe ? "#ffffff" : "transparent")};
 `;
 
 const Header = styled.header`
