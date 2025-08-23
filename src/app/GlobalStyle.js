@@ -7,12 +7,17 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  ::-webkit-scrollbar {
+  display: none;
+  }
 
   html, body {
     height: 100vh;
   }
 
-
+  ul, li {
+    list-style: none;
+  }
   a {
     color: inherit;
     text-decoration: none;
