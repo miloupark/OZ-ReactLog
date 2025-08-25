@@ -1,8 +1,8 @@
-import { useCounter } from "../../context/counter/counterContext.jsx";
+import { useContextApi } from "../../context/contextapi/contextApi.jsx";
 import { Counter } from "./ContextApi.style.js";
 
 export default function ContextApi() {
-  const [counter, setCounter] = useCounter();
+  const [counter, setCounter] = useContextApi();
 
   return (
     <Counter>
