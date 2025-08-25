@@ -1,4 +1,4 @@
-import { useCounter } from "../../context/counter/counterContext.js";
+import { useCounter } from "../../context/counter/counterContext.jsx";
 import { Counter } from "./ContextApi.style.js";
 
 export default function ContextApi() {
